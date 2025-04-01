@@ -1,0 +1,141 @@
+(footprint "MYOUNG BH-AAA-Axxx024"
+	(version 20240108)
+	(generator "pcbnew")
+	(generator_version "8.0")
+	(layer "F.Cu")
+	(descr "3x AAA battery holder")
+	(property "Reference" "REF**"
+		(at 0.2 -28.2 0)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(uuid "a7319c3a-ccbe-48ba-b0bf-aca2598ebea8")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.1)
+			)
+		)
+	)
+	(property "Value" "MYOUNG BH-AAA-Axxx024"
+		(at 0.5 28.7 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "b8bea470-13c7-464e-bc28-5ab119802e97")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Footprint" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "c07ceae7-69ba-4647-add0-a9a23240b803")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "c883245d-80b2-4ee1-b62c-9a8c7f7490d3")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "2de00a3b-c8c4-43b5-a3f7-ebe6a9bb5715")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr through_hole)
+	(fp_line
+		(start 19 -26.5)
+		(end 15.6 -26.5)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "Cmts.User")
+		(uuid "4d817524-e5fc-49b5-90a8-9a0947e2a896")
+	)
+	(fp_rect
+		(start -19 -26.5)
+		(end 19 26.5)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(fill none)
+		(layer "Cmts.User")
+		(uuid "bad98d59-e5d9-4c18-a21b-bfbfcfbf94c2")
+	)
+	(fp_line
+		(start 15.6 -26.5)
+		(end 15.6 -25.5)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "User.1")
+		(uuid "52942f62-3b3a-4dd1-abd3-5c09cfadae0b")
+	)
+	(fp_text user "${REFERENCE}"
+		(at 0.1 31.4 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "85956fa3-2e7f-44e7-ad62-ad98f3a54a31")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "1" thru_hole circle
+		(at 11.9 -25.5)
+		(size 1.8 1.8)
+		(drill 1.3)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "6d712845-5aab-412f-8b61-96af25cd9c02")
+	)
+	(pad "2" thru_hole circle
+		(at 0 -25.5)
+		(size 1.8 1.8)
+		(drill 1.3)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "23612e73-d173-41cb-ad42-7329589dc6a3")
+	)
+	(model "${KIPRJMOD}/_trueControl.pretty/keystone-PN2479.STEP"
+		(offset
+			(xyz 2.25 -8.5 10.5)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 90 180 90)
+		)
+	)
+)
