@@ -249,10 +249,10 @@
 	)
 	(model "${KIPRJDIR}/../_trueControl.pretty/smd Led 5050 v3.step"
 		(offset
-			(xyz 4.5 17.7 -0.5)
+			(xyz 6.1 23.9 -0.5)
 		)
 		(scale
-			(xyz 0.7 0.7 0.7)
+			(xyz 0.95 0.95 0.95)
 		)
 		(rotate
 			(xyz 90 180 90)
