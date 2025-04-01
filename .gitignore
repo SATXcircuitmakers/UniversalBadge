@@ -1,6 +1,8 @@
+# kicad auto-backups
 *-backups
 _autosave-*
 
+# kicad in-project working backups and lockfiles
 *.bak
 *-bak
 *.lck
@@ -8,4 +10,8 @@ _autosave-*
 
 \#auto_saved_files\#
 
+# mrs project
+obj
+
+# misc files
 *.7z
