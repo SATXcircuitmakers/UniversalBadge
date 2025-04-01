@@ -1,2 +1,11 @@
-UniversalBadge-backups
-LED_Assy/LED_Assy-backups
+*-backups
+_autosave-*
+
+*.bak
+*-bak
+*.lck
+*-cache
+
+\#auto_saved_files\#
+
+*.7z
