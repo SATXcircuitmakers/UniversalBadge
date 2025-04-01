@@ -1,6 +1,10 @@
 # UniversalBadge
-This badge is designed by true. It is currently a Work in progress.
-Badge was designed in kicad 8.08
+This badge was conceptualized by SATXcircuitmakers, and was redesigned by true.
 
-![Main Board](images/board.PNG)
-![LED Board](images/ledboard.PNG)
+This is currently a Work in progress.
+
+Badge was designed in KiCad v8.08.
+
+![Main Board](images/main_brd.png)
+![LED Assembly](images/led_assy.png)
+![3D Render](images/3drender.png)
