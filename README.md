@@ -1,5 +1,5 @@
 # UniversalBadge
-This badge was conceptualized by SATXcircuitmakers, and was redesigned by true.
+This badge was conceptualized by CoffeeHaus, and was redesigned by true.
 
 This is currently a Work in progress.
 
