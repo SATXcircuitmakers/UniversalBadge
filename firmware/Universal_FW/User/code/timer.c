@@ -23,7 +23,7 @@ void timers_init()
     tim_oc.TIM_OCMode = TIM_OCMode_PWM1;
     tim_oc.TIM_OutputState = TIM_OutputState_Enable;
 	tim_oc.TIM_Pulse = 0;
-	tim_oc.TIM_OCPolarity = TIM_OCPolarity_High;
+	tim_oc.TIM_OCPolarity = TIM_OCPolarity_Low;
 	
     TIM_OC1Init(TIM1, &tim_oc);
     TIM_OC1Init(TIM2, &tim_oc);
@@ -37,6 +37,9 @@ void timers_init()
 
     TIM_OC4Init(TIM1, &tim_oc);
     TIM_OC4Init(TIM2, &tim_oc);
+
+    TIM_CtrlPWMOutputs(TIM1, ENABLE);
+    TIM_CtrlPWMOutputs(TIM2, ENABLE);
 }
 
 void timers_off()
@@ -49,7 +52,7 @@ void timers_off()
 void timers_on()
 {
     TIM1->CNT = TIM2->CNT = TIM3->CNT = 0;
-    
+
     TIM_Cmd(TIM1, ENABLE);
     TIM_Cmd(TIM2, ENABLE);
     TIM_Cmd(TIM3, ENABLE);

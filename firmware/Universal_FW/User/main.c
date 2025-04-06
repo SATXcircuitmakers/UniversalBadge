@@ -81,7 +81,6 @@ const uint8_t rgb_map[] = {0};
 /*
     TODO:
     - set up systick timer interrupt
-    - set up timers with PWMs
     - set up button handling code
     - set up the matrix
     - program an example rainbow spew
@@ -112,8 +111,19 @@ int main(void)
     // temporary
     timers_on();
     TIM1->CH1CVR = 512;
-    TIM1->CH2CVR = 20;
+    TIM1->CH2CVR = 0;
     TIM1->CH3CVR = 1000;
-    
+
+    volatile uint32_t i = 0;
+    do {
+        i = 20000;
+        while (i--);
+
+        TIM1->CH4CVR++;
+        if (TIM1->CH4CVR > 1000) {
+            TIM1->CH4CVR = 0;
+        }
+    }
+
     while(1);
 }
