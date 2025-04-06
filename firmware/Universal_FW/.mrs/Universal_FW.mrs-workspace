@@ -22,5 +22,10 @@
 			"*.hh": "cpp",
 			"*.h++": "cpp"
 		}
+	},
+	"extensions": {
+		"recommendations": [
+			"ms-vsliveshare.vsliveshare"
+		]
 	}
 }

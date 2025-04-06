@@ -17,6 +17,9 @@
 
 #include "ch32x035.h"
 
+#include "code/timer.h"
+
+
 
 void clock_init()
 {
@@ -68,7 +71,7 @@ void gpio_init()
     // Unused bonded pin
     gpio.GPIO_Mode = GPIO_Mode_IN_FLOATING;
     gpio.GPIO_Pin = GPIO_Pin_5;
-    GPIO_Init(GPIOB, &gpio);    
+    GPIO_Init(GPIOB, &gpio);
 }
 
 uint8_t rgb[12][3];
@@ -102,6 +105,15 @@ int main(void)
 
     clock_init();
     gpio_init();
+
+    // configure peripherals
+    timers_init();
+
+    // temporary
+    timers_on();
+    TIM1->CH1CVR = 512;
+    TIM1->CH2CVR = 20;
+    TIM1->CH3CVR = 1000;
     
     while(1);
 }
