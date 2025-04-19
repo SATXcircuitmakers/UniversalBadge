@@ -17,7 +17,7 @@
 
 
 uint8_t rgb_prog_run = 0;
-
+void rainbow(Rgb *leds, uint8_t num_leds, uint8_t offset);
 
 
 // various hardware init
@@ -81,7 +81,7 @@ void systick_init()
     SysTick->CMP  = (SystemCoreClock / 1024) - 1;
     SysTick->CTLR = 0xF;
 
-    NVIC_SetPriority(SysTick_IRQn, 0);
+  //  NVIC_SetPriority(SysTick_IRQn, 0);
     NVIC_EnableIRQ(SysTick_IRQn);
 }
 
@@ -105,21 +105,67 @@ int main(void)
 
     // and start our main timer
     systick_init();
-
+    uint8_t rainbow_offset = 0;
     while (1) {
         // low-priority tasks
         if (rgb_prog_run) {
             // run program
             rgb_prog_run = 0;
 
-            for (uint8_t i = 0; i < 12; i++) {
-                rgb[i].r = 100;
-                rgb[i].g = 100;
-                rgb[i].b = 100;
-            }
-
-            rgb[6].b = 800;
+            rainbow(rgb,12,rainbow_offset++);
         }
+
+
+
+        __WFI();
+    }
+}
+
+void rainbow(Rgb *leds, uint8_t num_leds, uint8_t offset) {
+    for (uint8_t i = 0; i < num_leds; i++) {
+        uint8_t hue = (i * 255 / num_leds) + offset;  // Spread hues evenly with offset for animation
+        uint8_t segment = hue / 43;
+        uint8_t remainder = (hue - (segment * 43)) * 6;
+        
+        uint8_t r = 0, g = 0, b = 0;
+        
+        switch (segment) {
+            case 0:
+                r = 255;
+                g = remainder;
+                b = 0;
+                break;
+            case 1:
+                r = 255 - remainder;
+                g = 255;
+                b = 0;
+                break;
+            case 2:
+                r = 0;
+                g = 255;
+                b = remainder;
+                break;
+            case 3:
+                r = 0;
+                g = 255 - remainder;
+                b = 255;
+                break;
+            case 4:
+                r = remainder;
+                g = 0;
+                b = 255;
+                break;
+            case 5:
+                r = 255;
+                g = 0;
+                b = 255 - remainder;
+                break;
+        }
+        
+        // Apply some brightness reduction if needed (optional)
+        leds[i].r = r >> 1;  // Divide by 4 for lower brightness
+        leds[i].g = g >> 1;
+        leds[i].b = b >> 1;
     }
 }
 
@@ -139,7 +185,7 @@ void SysTick_Handler(void)
         uptime++;
     }
 
-    if (tick & 0xf) {
+    if (!(tick & 0xf)) {
         rgb_prog_run = 1;
     }
 
