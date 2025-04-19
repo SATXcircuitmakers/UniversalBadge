@@ -3,6 +3,7 @@
 */
 
 #include "ch32x035.h"
+#include "timer.h"
 
 
 void timers_init()
@@ -11,7 +12,7 @@ void timers_init()
     TIM_OCInitTypeDef tim_oc = {0};
 
     // configure timers
-    tim.TIM_Period = (1 << 10) - 1;
+    tim.TIM_Period = (1 << BIT_DEPTH) - 1;
 	tim.TIM_Prescaler = 0;
 	tim.TIM_ClockDivision = TIM_CKD_DIV1;
 	tim.TIM_CounterMode = TIM_CounterMode_Up;
@@ -23,7 +24,7 @@ void timers_init()
     tim_oc.TIM_OCMode = TIM_OCMode_PWM1;
     tim_oc.TIM_OutputState = TIM_OutputState_Enable;
 	tim_oc.TIM_Pulse = 0;
-	tim_oc.TIM_OCPolarity = TIM_OCPolarity_Low;
+	tim_oc.TIM_OCPolarity = TIM_OCPolarity_High;
 	
     TIM_OC1Init(TIM1, &tim_oc);
     TIM_OC1Init(TIM2, &tim_oc);

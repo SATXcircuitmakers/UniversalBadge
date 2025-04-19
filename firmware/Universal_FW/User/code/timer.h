@@ -3,6 +3,10 @@
 
 
 
+#define BIT_DEPTH       10
+
+
+
 void timers_init();
 
 void timers_off();

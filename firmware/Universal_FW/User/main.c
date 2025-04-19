@@ -4,13 +4,8 @@
  
     TODO:
      - set up systick timer interrupt
-     - set up the matrix
      - set up button handling code
-     - program an example rainbow spew
-
-    TODAY's TODO:
-     - figure out r/g/b timer outputs
-     - figure out led order
+     - program an example rainbow spew 
 */
 
 
@@ -18,6 +13,10 @@
 
 #include "code/timer.h"
 #include "code/rgbled.h"
+
+
+
+uint8_t rgb_prog_run = 0;
 
 
 
@@ -75,6 +74,17 @@ static inline void gpio_init()
     GPIO_Init(GPIOB, &gpio);
 }
 
+void systick_init()
+{
+    SysTick->SR   = 0;
+    SysTick->CNT  = 0;
+    SysTick->CMP  = (SystemCoreClock / 1024) - 1;
+    SysTick->CTLR = 0xF;
+
+    NVIC_SetPriority(SysTick_IRQn, 0);
+    NVIC_EnableIRQ(SysTick_IRQn);
+}
+
 
 // here we go
 int main(void)
@@ -93,11 +103,45 @@ int main(void)
     // finally, start our output
     timers_on();
 
-    // temporary
-    rgb[1].b = 100;
-    rgb[3].g = 100;
-    rgb[5].r = 100;
+    // and start our main timer
+    systick_init();
+
+    while (1) {
+        // low-priority tasks
+        if (rgb_prog_run) {
+            // run program
+            rgb_prog_run = 0;
+
+            for (uint8_t i = 0; i < 12; i++) {
+                rgb[i].r = 100;
+                rgb[i].g = 100;
+                rgb[i].b = 100;
+            }
+
+            rgb[6].b = 800;
+        }
+    }
+}
+
+volatile uint32_t uptime = 0;
+uint16_t tick = 0;
+
+__attribute__((interrupt("WCH-Interrupt-fast")))
+void SysTick_Handler(void) 
+{
+    // update LEDs - very important to do this first
     matrix_next();
 
-    while(1);
+    // do other stuff
+    tick++;
+    tick &= 0x3ff;
+    if (!tick) {
+        uptime++;
+    }
+
+    if (tick & 0xf) {
+        rgb_prog_run = 1;
+    }
+
+    SysTick->SR = 0;
 }

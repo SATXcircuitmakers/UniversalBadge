@@ -3,6 +3,7 @@
 */
 
 #include "rgbled.h"
+#include "timer.h"
 
 
 const struct SelPin sel[SEL_COUNT] = {
