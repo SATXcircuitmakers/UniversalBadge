@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashlight Kit - San Antonio Circuit Makers</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://satxcircuitmakers.github.io/Main/css/style.css">
+
+</head>
+<body>
+    <!-- Unified Header Bar -->
+    <div id="header"></div>
+
+    <div class="container">
+        <h1>Flashlight Kit</h1>
+        <p>
+            Welcome to the Flashlight Kit resource page! Here, you'll find everything you need to assemble and understand your soldering kit flashlight.
+        </p>
+
+        <!-- Section 1: Instructions -->
+        <div class="step">
+            <h2>Instructions</h2>
+            <img src="images/flashlight-complete.jpg" alt="Completed Flashlight" width="500" height="600">
+            <p>Follow the step-by-step guide to assemble your flashlight:</p>
+            <ul>
+                <li><a href="https://satxcircuitmakers.github.io/FlashlightKit/instructions.pdf">Download Instructions (PDF)</a></li>
+                <li><a href="https://satxcircuitmakers.github.io/FlashlightKit/instructions.html">View Instructions Online</a></li>
+            </ul>
+        </div>
+
+        <!-- Section 2: PCB Files -->
+        <div class="step">
+            <h2>PCB Files</h2>
+            <img src="images/flashlight-pcb.jpg" alt="Flashlight PCB">
+            <p>Download the PCB design files for the flashlight kit:</p>
+            <ul>
+                <li><a href="https://www.pcbway.com/project/shareproject/Flashlight___I_can_Solder___STEAM.html">PCB source</a></li>
+                <li><a href="https://satxcircuitmakers.github.io/FlashlightKit/BOM.csv">Bill of Materials</a></li>
+            </ul>
+        </div>
+
+        <!-- Section 3: Additional Resources -->
+        <div class="step">
+            <h2>Additional Resources</h2>
+            <p>Explore these resources to learn more about soldering and electronics:</p>
+            <ul>
+                <li><a href="https://www.makerspaces.com/how-to-solder/">Makersspace's Basic Soldering Guide</a></li>
+                <li><a href="https://learn.adafruit.com/adafruit-guide-excellent-soldering/tools">Adafruit's Soldering Tutorial</a></li>
+            </ul>
+        </div>
+
+        <!-- Section 4: Contribute -->
+        <h2>Contribute</h2>
+        <p>
+            Have suggestions or improvements for this guide? Email us at <a href="mailto:satxcircuitmakers@gmail.com">satxcircuitmakers@gmail.com</a>.
+        </p>
+    </div>
+
+    <footer>
+        &copy; 2024 San Antonio Circuit Makers. All rights reserved.
+    </footer>
+    <script>
+        $(function(){
+          $("#header").load("https://satxcircuitmakers.github.io/Main/site/header.html",function(){
+            $('#header-subtitle').html('Flashlight Kit Resources');
+          });
+        });
+    </script>
+</body>
+</html>
